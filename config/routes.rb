@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 BillIt::Application.routes.draw do
 
   resources :votes

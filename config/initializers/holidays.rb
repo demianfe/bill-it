@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 all_holidays = YAML.load_file("#{Rails.root}/config/holidays.yml")
 all_holidays.values.each do |year|
   year.values.each do |holiday|

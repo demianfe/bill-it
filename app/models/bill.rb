@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 class Bill
   require 'open-uri'
   include Mongoid::Document
@@ -35,7 +36,7 @@ class Bill
   field :tags, type: Array
   field :bill_draft_link, type: String
   field :current_priority, type: String
-
+ 
   scope :urgent, where(:current_priority.in => ["Discusión inmediata", "Suma", "Simple"])
 
   include Sunspot::Mongoid2

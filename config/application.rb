@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 require File.expand_path('../boot', __FILE__)
 
 # Pick the frameworks you want:
@@ -47,6 +48,8 @@ module BillIt
     # Configure the default encoding used in templates for Ruby 1.9.
     config.encoding = "utf-8"
 
+    Encoding.default_external = 'utf-8'
+    Encoding.default_internal = 'utf-8'
     # Configure sensitive parameters which will be filtered from the log file.
     config.filter_parameters += [:password]
 

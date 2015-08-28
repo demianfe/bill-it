@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 require 'billit_representers/representers/paperwork_collection_representer'
 class PaperworksController < ApplicationController
   respond_to :json, :xml

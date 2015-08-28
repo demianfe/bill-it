@@ -1,4 +1,4 @@
-# encoding: UTF-8
+# -*- encoding : utf-8 -*-
 require 'billit_representers/models/bill'
 require 'billit_representers/models/bill_page'
 require 'billit_representers/representers/bill_representer'
@@ -51,6 +51,7 @@ class BillsController < ApplicationController
   # GET /bills/search.json?q=search_string
   def search
     require 'will_paginate/array'
+
     # Sunspot.remove_all(Bill)   # descomentar para reindexar,
     # Sunspot.index!(Bill.all)   # en caso de cambio en modelo
     search = search_for(params)
@@ -97,7 +98,9 @@ class BillsController < ApplicationController
     end
     @bill.save
     begin
+      puts "indexing" 
       Sunspot.index!(@bill)
+
     rescue
       puts "#{$!}"
       puts "unindexed bill: " + @bill.uid
@@ -193,7 +196,7 @@ class BillsController < ApplicationController
 
   def search_for(conditions)
     filtered_conditions = filter_conditions(conditions)
-
+    puts conditions
     search = Sunspot.search(Bill) do
       # FIX the equivalence conditions settings should be in a conf file
       # search over all fields
@@ -246,8 +249,9 @@ class BillsController < ApplicationController
       end
 
       paginate page:conditions[:page], per_page:conditions[:per_page]
+      order_by(:creation_date, :desc)
+      search
     end
-    search
   end
 
   def last_update

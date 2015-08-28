@@ -1,4 +1,4 @@
-# encoding: UTF-8
+# -*- encoding : utf-8 -*-
 # require 'billit_representers/models/motion'
 # require 'billit_representers/models/motion_page'
 require 'billit_representers/representers/motion_representer'

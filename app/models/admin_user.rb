@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 class AdminUser
   include Mongoid::Document
   # Include default devise modules. Others available are:

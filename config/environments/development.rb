@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 BillIt::Application.configure do
   # Settings specified here will take precedence over those in config/application.rb
 
@@ -33,7 +34,7 @@ BillIt::Application.configure do
   config.representer.default_url_options = {:host => ENV['root_url']}
 
   #ActiveAdmin
-  config.action_mailer.default_url_options = { host: 'localhost:3000' }
+  config.action_mailer.default_url_options = { host: 'localhost:3500' }
 
   # Limit log disk space
   config.logger = Logger.new("log/#{Rails.env}.log", 1, ENV['log_size_limit'])
